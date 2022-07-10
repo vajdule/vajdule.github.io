@@ -314,9 +314,15 @@ background-image: radial-gradient(#374566, #010203);
             window.ontouchstart = function() {};
         }
         function onButtonClick(){
-            document.querySelector('p.question').style.display='none'; 
-            document.querySelector('div.quiz_box').style.display='none'; 
-            document.querySelector('div.quiz_result_ok').style.display='block';
+            const input = document.querySelector('input[name="quiz"]').value;
+            if (input === '18'){
+                document.querySelector('p.question').style.display='none'; 
+                document.querySelector('div.quiz_box').style.display='none';
+                document.querySelector('div.quiz_result_ok').style.display='block';
+                document.querySelector('div.quiz_result_ko').style.display='none';
+            } else {
+                document.querySelector('div.quiz_result_ko').style.display='block';
+            }
         }
     </script>
     <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
@@ -352,6 +358,9 @@ background-image: radial-gradient(#374566, #010203);
          </div>
          <div class="quiz_result_ok" style="display: none;">
             <p style="color: rgba(190, 61, 244, 0.9); font-weight: bold;">Správně! Dáreček ti přistál na účet.</p>
+         </div>
+         <div class="quiz_result_ko" style="display: none;">
+            <p style="color: rgba(244, 61, 61, 0.9); font-weight: bold;">Ne ne! Zkus to znovu.</p>
          </div>
     </div>
     <script>
