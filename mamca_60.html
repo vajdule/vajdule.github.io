@@ -273,10 +273,37 @@ background-image: radial-gradient(#374566, #010203);
         h3 {
             position: relative;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            top: 250px;
+            top: 200px;
             text-align: center;
             color: white;
             font-size: 2em;
+        }
+        p {
+            position: relative;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            top: 230px;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+        }
+        p strong {
+            color: rgba(180, 224, 67, 0.9);
+        }
+
+        div.quiz_box {
+            position: relative;
+            top: 240px;
+            text-align: center;
+        }
+
+        div.quiz_box input {
+            padding: 20px;
+            font-size: 1.5em;
+        }
+
+        div.quiz_box button {
+            padding: 20px;
+            font-size: 1.5em;
         }
     </style>
     <script>
@@ -285,6 +312,11 @@ background-image: radial-gradient(#374566, #010203);
         // Support hover state for mobile.
         if (false) {
             window.ontouchstart = function() {};
+        }
+        function onButtonClick(){
+            document.querySelector('p.question').style.display='none'; 
+            document.querySelector('div.quiz_box').style.display='none'; 
+            document.querySelector('div.quiz_result_ok').style.display='block';
         }
     </script>
     <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
@@ -313,6 +345,14 @@ background-image: radial-gradient(#374566, #010203);
         </div>
          <h1>MAMČULKO!</h1>
          <h3>Všechno nejlepší k tvým 60tým narozeninám.</h3>
+         <p class="question">Odpověz správně na tuto hádanku a dostaneš dárek:<br/><br/><strong>Kolik je součet číslic tvého roku narození?</strong></p>
+         <div class="quiz_box">
+            <input type="text" name="quiz"/>
+            <button onclick="javascript:onButtonClick()">Odeslat</button>
+         </div>
+         <div class="quiz_result_ok" style="display: none;">
+            <p style="color: rgba(190, 61, 244, 0.9); font-weight: bold;">Správně! Dáreček ti přistál na účet.</p>
+         </div>
     </div>
     <script>
         
